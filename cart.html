@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stayling.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <style>
+      /* تنسيق عنوان السلة */
+      h2 {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 28px;
+        color: #333;
+      }
+
+      /* الحاوية الأساسية للمنتجات */
+      #cart-items {
+        width: 90%;
+        max-width: 800px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      /* كل منتج */
+      .cart-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+      }
+
+      .cart-item:hover {
+        transform: scale(1.02);
+      }
+
+      /* صورة المنتج */
+      .cart-item img {
+        border-radius: 8px;
+        width: 80px;
+        height: auto;
+      }
+
+      /* تفاصيل المنتج */
+      .cart-item h4 {
+        margin: 0;
+        font-size: 18px;
+        color: #444;
+      }
+
+      .cart-item p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      /* زر الحذف */
+      .cart-item .delete-btn {
+        background: #e63946;
+        border: none;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+      }
+
+      .cart-item .delete-btn:hover {
+        background: #d62828;
+      }
+
+      /* 📱 Responsiveness */
+      @media (max-width: 768px) {
+        .cart-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 12px;
+        }
+
+        .cart-item img {
+          width: 100%;
+          max-width: 250px;
+          margin: auto;
+          display: block;
+        }
+
+        .cart-item h4 {
+          font-size: 16px;
+        }
+
+        .cart-item p {
+          font-size: 13px;
+        }
+
+        .cart-item .delete-btn {
+          align-self: flex-end;
+          padding: 6px 12px;
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h2 {
+          font-size: 22px;
+        }
+
+        .cart-item {
+          padding: 10px;
+        }
+
+        .cart-item h4 {
+          font-size: 15px;
+        }
+
+        .cart-item p {
+          font-size: 12px;
+        }
+
+        .cart-item img {
+          max-width: 200px;
+        }
+      }
+    </style>
+    <title>Shopping Cart</title>
+  </head>
+  <body>
+    <!-- header -->
+    <section id="header">
+      <a href="#"><img src="imgs/logo.png" /></a>
+      <nav>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">shop</a></li>
+          <li><a href="blog.html">blog</a></li>
+          <li><a href="about.html">about</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li id="lg-bag">
+            <a class="active" href="cart.html"
+              ><i class="fa-solid fa-bag-shopping"></i
+            ></a>
+          </li>
+          <a href="#" id="close">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </a>
+        </ul>
+      </nav>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+    <!-- cart -->
+    <div id="cart-items"></div>
+
+    <!-- footer -->
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="imgs/logo.png" />
+        <h4>Contact</h4>
+        <p><strong>Adress: </strong>Agadir, Morocco, 8000</p>
+        <p><strong>Hours: </strong>10:00 - 22:00, Mon-Set</p>
+      </div>
+      <div class="follow">
+        <h4>Follow us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-pinterest-p"></i>
+          <i class="fab fa-youtube-f"></i>
+        </div>
+      </div>
+      <div class="col">
+        <h4>about</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery</a>
+        <a href="#">Privocy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Stor or Google Play</p>
+        <div class="row">
+          <img src="imgs/pay/app.jpg" />
+          <img src="imgs/pay/play.jpg" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="imgs/pay/pay.png" />
+      </div>
+
+      <div class="copyright">
+        <p>created by YA - 2025</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      const cartItemsDiv = document.getElementById("cart-items");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        cartItemsDiv.innerHTML = "<p>empty!</p>";
+      } else {
+        cart.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.classList.add("cart-item");
+          div.innerHTML = `
+      <img src="${item.image}" width="80">
+      <h4>${item.title}</h4>
+      <p>Quantity: ${item.quantity}</p>
+      <p>Price: ${item.price}</p>
+      <button class="delete-btn">🗑️ delet</button>
+    `;
+
+          div.querySelector(".delete-btn").addEventListener("click", () => {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            window.location.reload();
+          });
+
+          cartItemsDiv.appendChild(div);
+        });
+      }
+    </script>
+  </body>
+</html>
